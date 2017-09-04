@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movies App</title>
     <link href="src/app.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>
@@ -15,26 +16,30 @@
       </header>
       <section class="search-results">
         <ul class="boxes">
-          <li class="box">
-            <img src="" alt="" class="box-img">
-            <div class="movie-name">Name</div>
-          </li>
         </ul>
       </section>
-      <section class="details-modal">
-        <header>
-          <h3>Movie Name</h3>
-        </header>
-        <section class="content">
-          <div class="cast-container">
-            <ul class="cast-list">
-              <li>Actor Name</li>
-              <li>Actor Name</li>
-              <li>Actor Name</li>
-            </ul>
+      <section class="modal-wrapper">
+        <div class="backdrop"></div>
+        <section class="modal-body">
+          <div class="modal-content">
+            <div class="modal-close-btn">X</div>
+            <header>
+              <h3 class="movie-name">Movie Name</h3>
+            </header>
+            <section class="content">
+              <div class="cast-container">
+                <h4>Starring:</h4>
+                <ul class="cast-list">
+                  <li>Actor Name</li>
+                  <li>Actor Name</li>
+                  <li>Actor Name</li>
+                </ul>
+              </div>
+              <div class="score">12.3</div>
+              <h4>Genres:</h4>
+              <div class="genres">action, comedy</div>
+            </section>
           </div>
-          <div class="score">12.3</div>
-          <div class="genres">action, comedy</div>
         </section>
       </section>
     </main>

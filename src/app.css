@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/* -----------   header   ----------- */
 .app-header {
     display: flex;
     align-items: center;
@@ -27,6 +31,8 @@
     border-radius: 0 5px 5px 0;
 }
 
+/* -----------   content   ----------- */
+
 .boxes {
     list-style: none;
     display: flex;
@@ -39,9 +45,61 @@
 .box {
     margin-bottom: 20px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .box img {
     width: 210px;
     height: 295px;
+}
+
+/* -----------   modal   ----------- */
+
+.modal-wrapper {
+    transition: .3s ease-out;
+    opacity: 0;
+    display: none;
+}
+
+.modal-wrapper.shown {
+    display: block;
+}
+
+.modal-wrapper.visible {
+    opacity: 1;
+}
+
+.modal-wrapper .backdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal-wrapper .modal-close-btn {
+    cursor: pointer;
+    float: right;
+    margin: 10px;
+}
+
+.modal-wrapper .modal-body {
+    position: absolute;
+    height: 500px;
+    width: 70%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: white;
+    overflow: scroll;
+    box-shadow: 0 1px 15px 7px #dcdcdc;
+}
+
+.modal-wrapper .modal-content {
+    width: 97%;
+    padding: 10px 0 30px 10px;
 }
