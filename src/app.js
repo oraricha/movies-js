@@ -26,14 +26,6 @@ var MovieService = (function() {
         },
         getCastData: function(movieId) {
             return handleResponse(fetch(api + castApiPrefix + movieId + castApiSuffix), 'getMovieData');
-            // return fetch(api + castApiPrefix + movieId + castApiSuffix)
-            //     .then(function(response){
-            //         return response.json().then(function(data) {
-            //             console.log(data);
-            //             return data;
-            //         });
-            //     })
-            //     .catch(function(error){ console.error('getCastData Error: ', error); });
         }
     }
 })();
