@@ -8,7 +8,6 @@ var MovieService = (function() {
         return promise
             .then(function(response){
                 return response.json().then(function(data) {
-                    console.log(data);
                     return data;
                 });
             })
@@ -88,7 +87,6 @@ var DomService = (function() {
         showModal: function(movieData) {
             MovieService.getCastData(movieData.show.id).then(function(castData) {
                 var animationTimeout;
-                console.log(castData);
 
                 var movieName = elements.modalContent.querySelector('h3');
                 movieName.innerHTML = movieData.show.name;
