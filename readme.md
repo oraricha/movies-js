@@ -1,4 +1,4 @@
-**A simple movie api implementation with plain JS.**
+**A simple movie usage api implementation with plain JS.**
 
 Just clone on your machine and open `index.html`.
 
