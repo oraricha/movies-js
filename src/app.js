@@ -42,17 +42,71 @@ var MovieService = (function() {
     }
 })();
 
-var app = (function() {
-    // var $ = document.querySelector;
-    // var $$ = document.querySelectorAll;
+var DomService = (function() {
+    var elements = {};
 
+    var attachListeners = function(){
+        // elements.searchBox.addEventListener("keyup", function(event) {
+        //     event.preventDefault();
+        //     if (event.keyCode === 13) {
+        //         console.log('enter');
+        //         searchCallback();
+        //     }
+        // });
+        //
+        // elements.searchBtn.addEventListener("click", function(event) {
+        //     searchCallback();
+        //     console.log('clicked');
+        // });
+    };
+
+    var init = function(){
+        elements.castList = document.querySelector('.boxes');
+        // elements.searchBtn = document.querySelector('.search-btn');
+        console.log(elements);
+
+        attachListeners();
+    };
+
+    init();
+
+    return {
+        appendSearchResults: function(data) {
+            var NO_IMAGE_PLACEHOLDER = 'http://static.tvmaze.com/images/no-img/no-img-portrait-text.png';
+            var movieItems = data.map(function(movie) {
+                var listItem = document.createElement('li');
+                listItem.className = 'box';
+                var img = document.createElement('img');
+                img.src = movie.show.image !== null ? movie.show.image.medium : NO_IMAGE_PLACEHOLDER;
+                var movieName = document.createElement('div');
+                movieName.className = 'movie-name';
+                movieName.innerHTML = movie.show.name;
+                listItem.appendChild(img);
+                listItem.appendChild(movieName);
+
+                return listItem;
+            });
+
+            elements.castList.innerHTML = '';
+            movieItems.forEach(function(listItem) {
+                elements.castList.appendChild(listItem);
+            });
+        }
+    };
+
+})();
+
+var app = (function() {
     var elements = {};
 
     var searchCallback = function() {
         var searchQuery = elements.searchBox.value.trim();
 
         if (searchQuery.length > 0) {
-            MovieService.getMovieData(searchQuery);
+            MovieService.getMovieData(searchQuery)
+                .then(function(data) {
+                    DomService.appendSearchResults(data);
+                });
         }
     };
 
@@ -75,6 +129,8 @@ var app = (function() {
         elements.searchBox = document.querySelector('.search-input');
         elements.searchBtn = document.querySelector('.search-btn');
         console.log(elements);
+
+        elements.searchBox.focus();
 
         attachListeners();
     };
